@@ -3,14 +3,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 from skimage.filters import frangi
 import os
-import pickle
 import sqlite3
+import pickle
 from PyQt5 import QtWidgets, QtGui
-from PyQt5.QtWidgets import QLabel, QVBoxLayout, QPushButton, QFileDialog, QWidget, QApplication
 from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QLabel, QVBoxLayout, QPushButton, QFileDialog, QWidget, QApplication
 
 # UI for the retina image matcher
-class RetinaMatcherApp(QtWidgets.QWidget):
+class RetinaMatcherApp(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
@@ -69,8 +69,7 @@ class RetinaMatcherApp(QtWidgets.QWidget):
         rows = cursor.fetchall()
 
         bf = cv2.BFMatcher()
-        best_match = None
-        best_distance = float('inf')
+        matches_list = []
 
         for row in rows:
             db_path, db_keypoints_blob, db_descriptors_blob = row
@@ -81,16 +80,23 @@ class RetinaMatcherApp(QtWidgets.QWidget):
             good_matches = [m for m, n in matches if m.distance < 0.75 * n.distance]
             distance = sum([m.distance for m in good_matches])
 
-            if distance < best_distance:
-                best_distance = distance
-                best_match = db_path
+            matches_list.append((db_path, distance))
 
         conn.close()
 
-        if best_match:
-            self.result_label.setText(f"Matched with: {best_match}\nDistance: {best_distance:.2f}")
-            matched_pixmap = QtGui.QPixmap(best_match)
+        # Sort matches by distance (ascending order)
+        matches_list.sort(key=lambda x: x[1])
+
+        if matches_list:
+            best_match = matches_list[0]
+            best_match_path, best_distance = best_match
+            self.result_label.setText(f"Matched with: {best_match_path}\nDistance: {best_distance:.2f}")
+            matched_pixmap = QtGui.QPixmap(best_match_path)
             self.matching_image_label.setPixmap(matched_pixmap.scaled(400, 400, aspectRatioMode=Qt.KeepAspectRatio))
+
+            # Display all matches in order of similarity
+            for i, (match_path, distance) in enumerate(matches_list[:5]):  # Show top 5 matches
+                print(f"Match {i + 1}: {match_path}, Distance: {distance:.2f}")
         else:
             self.result_label.setText("No match found.")
 

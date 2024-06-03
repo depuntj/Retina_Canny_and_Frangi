@@ -4,3 +4,5 @@ scikit-image
 matplotlib
 pandas
 PyQt5
+pickle
+sqlite3

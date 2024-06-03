@@ -31,3 +31,12 @@ Untuk dapat menjalankan projek, pengguna perlu melakukan beberapa langkah pengin
    ```
    pip install -r requirements.txt
    ```
+
+4. **Rubah image_path**
+   Saat menjalan kan image processing kita perlu merubah gambar yang dinginkan untuk menjalankan image processing tersebut
+5. **Jalnkan ui.py**
+   Setelah melakukan itu semua jalankan ui.py untuk dapat melakukan matching dengan gambar yang dinginkan apakah ada didalam database yang di dapatkan dari menjalankan main.ipynb
+
+   ```
+   python -u "ui.py"
+   ```
