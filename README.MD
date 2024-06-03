@@ -33,7 +33,10 @@ Untuk dapat menjalankan projek, pengguna perlu melakukan beberapa langkah pengin
    ```
 
 4. **Rubah image_path**
-   Saat menjalan kan image processing kita perlu merubah gambar yang dinginkan untuk menjalankan image processing tersebut
+   Saat menjalan kan image processing kita perlu merubah gambar yang dinginkan untuk menjalankan image processing tersebut dan jalan kan main.ipynb
+   ```
+   python -u "ui.py"
+   ```
 5. **Jalnkan ui.py**
    Setelah melakukan itu semua jalankan ui.py untuk dapat melakukan matching dengan gambar yang dinginkan apakah ada didalam database yang di dapatkan dari menjalankan main.ipynb
 

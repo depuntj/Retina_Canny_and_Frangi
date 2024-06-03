@@ -1,8 +1,3 @@
-import cv2
-import numpy as np
-import matplotlib.pyplot as plt
-from skimage.filters import frangi
-import os
 import sqlite3
 import pickle
 from PyQt5 import QtWidgets, QtGui
