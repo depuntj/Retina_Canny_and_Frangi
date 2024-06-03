@@ -103,12 +103,6 @@ class RetinaMatcherApp(QWidget):
 if __name__ == '__main__':
     import sys
     app = QApplication(sys.argv)
-
-    # Ensure database is created
-    partition_dir = 'partitions'
-    if not os.path.exists('retina_partitions.db'):
-        create_database(partition_dir)
-
     ex = RetinaMatcherApp()
     ex.show()
     sys.exit(app.exec_())
