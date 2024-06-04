@@ -1,3 +1,4 @@
+import cv2
 import sqlite3
 import pickle
 from PyQt5 import QtWidgets, QtGui
