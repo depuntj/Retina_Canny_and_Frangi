@@ -13,7 +13,7 @@ Untuk dapat menjalankan projek, pengguna perlu melakukan beberapa langkah pengin
    Untuk melakukan klon repository, pengguna bisa menjalankan command berikut di terminal komputer sesuai sistem operasi yang digunakan.
 
    ```
-   git clone https://github.com/depuntj/Retina_Vessel.git
+   git clone https://github.com/depuntj/Retina_Canny_and_Frangi.git
    ```
 
 2. **Masuk ke folder projek**
@@ -21,7 +21,7 @@ Untuk dapat menjalankan projek, pengguna perlu melakukan beberapa langkah pengin
    Setelah repository berhasil dikloning, pengguna bisa masuk ke folder tersebut, dengan mengetikkan command berikut.
 
    ```
-   cd .\Retina_Vessel\
+   cd .\Retina_Canny_and_Frangi\
    ```
 
 3. **Install paket yang diperlukan**
@@ -33,11 +33,15 @@ Untuk dapat menjalankan projek, pengguna perlu melakukan beberapa langkah pengin
    ```
 
 4. **Rubah image_path**
+
    Saat menjalan kan image processing kita perlu merubah gambar yang dinginkan untuk menjalankan image processing tersebut dan jalan kan main.ipynb
+
    ```
    python -u "ui.py"
    ```
+
 5. **Jalnkan ui.py**
+
    Setelah melakukan itu semua jalankan ui.py untuk dapat melakukan matching dengan gambar yang dinginkan apakah ada didalam database yang di dapatkan dari menjalankan main.ipynb
 
    ```
